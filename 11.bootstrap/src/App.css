@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  display: flex;
+}
+
+.logo {
+  width: 100px;
+}
+
+section {
+  height: 70vh;
+}
+
+footer {
+  padding: 10px 0 5px 10px;
+}
