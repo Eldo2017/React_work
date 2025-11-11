@@ -1,13 +1,13 @@
 import './App.css';
 import {useState} from 'react';
 /*
-  삭제
+  input에 글자 받아서 title에 추가하기
 */
 function App() {
   const [like, setLike] = useState(0);
   let [title, setTitle] = useState(['얌샘김밥', '이향', '초밥']);
   let [modal, setModal] = useState(false);  // '닫힘'/'열림' or  0/1 or true/false
-  let [modalIndex] = useState(0);
+  let [modalIndex, setModalIndex] = useState(0);
   // input에 들어온 값 저장할 state
   let [inputValue, setInputValue] = useState('');
 
@@ -21,34 +21,13 @@ function App() {
           return (
             <div className="list" key={i}>
               <h4 onClick={() => {setModal(!modal)}}>{v}</h4>
-              <p>11월 10일 &emsp;
-                <span onClick={() => {
-                  let copy = [...like]
-                  copy[i] = copy[i] + 1
-                  setLike(copy)
-                }}>🥇</span>&emsp;{like[i]}
-              </p>
-              <button onClick={()=>{
-                // 1. title 배열 복사
-                let copyTitle = [...title];
-                // 2. 해당 index 요소 삭제
-                copyTitle.splice(i,1);
-                // 3. 변경된 배열을 다시 state에 반영
-                setTitle(copyTitle);
-
-                // 4. like 배열도 같은 방법으로 없애기
-                let copyLike = [...like];
-                copyLike.splice(i,1);
-                setLike(copyLike);
-              }}>삭제</button>
+              <p>11월 10일 &emsp;<span onClick={() => {setLike(like+1)}}>🥇</span>&emsp;{like}</p>
             </div>
           )
         }) 
       }
-
       {/* 1. 입력받기 */}
       <input onChange={(e) => {setInputValue(e.target.value); console.log(inputValue)}}></input>
-      
       {/* 3. 글추가 버튼 */}
       <button onClick={() => {
         let copy1 = [...title];

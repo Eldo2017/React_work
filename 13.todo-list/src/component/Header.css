@@ -1,0 +1,18 @@
+.Header {
+    text-align: center;
+    color:black;
+    padding: 20px 10px;
+}
+
+.Header h1 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.Header h3 {
+    margin-top: 8px;
+    font-size: 25px;
+    font-weight: normal;
+    opacity: 0.9;
+}

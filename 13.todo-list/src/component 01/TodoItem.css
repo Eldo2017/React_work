@@ -1,0 +1,48 @@
+.TodoItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.TodoItem:hover {
+    background-color: #f0f4ff;
+}
+
+.TodoItem input[Type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 10px;
+}
+
+.TodoItem div {
+    flex: 1;
+    font-size: 15px;
+    color: #333;
+}
+
+.TodoItem div:nth-child(3) {
+    flex: 0.5;
+    text-align: right;
+    font-size: 13px;
+    color: #888;
+}
+
+.TodoItem button {
+    background-color: #eb3b5a;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.TodoItem button:hover {
+    background-color: #d11a3c;
+}

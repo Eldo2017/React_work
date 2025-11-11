@@ -1,0 +1,21 @@
+.List {
+    padding: 15px;
+}
+
+.List h4 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.List input[placeholder="검색어를 입력하시오"] {
+    width: 200px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.List input[placeholder="검색어를 입력하시오"]:focus {
+    border-color: #302d2d;
+}
