@@ -55,17 +55,6 @@ function App() {
     setTodos([newItem, ...todos]);
   }
 
-  const onUpdate = (targetId) => {
-    setTodos(todos.map(todo => {
-      if(todo.id === targetId) {
-        return {
-          ...todo,
-          isDone: !todo.isDone
-        }
-      }
-      return todo
-    }))
-  }
   return (
     <div className="App">
       <Header />

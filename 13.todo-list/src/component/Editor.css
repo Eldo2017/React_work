@@ -1,37 +1,18 @@
-.Editor {
+.editor {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 10px;
-    border-bottom: 1px solid #ddd;
     gap: 10px;
 }
-
-.Editor input[type="text"],
-.Editor input[placeholder] {
+.editor input {
     flex: 1;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    outline: none;
-    font-size: 14px;
+    padding: 15px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
 }
-
-.Editor input[type="text"]:focus {
-    border-color: black;
-    box-shadow: 0 0 4px rgba(75,123,236,0.3);
-}
-
-button {
-    padding: 8px 15px;
-    background-color: paleturquoise;
-    border: none;
-    border-radius: 6px;
-    color: black;
+.editor button {
     cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-button:hover {
-    background-color: rgb(57, 90, 90);
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    background-color: paleturquoise;
+    color: white;
 }

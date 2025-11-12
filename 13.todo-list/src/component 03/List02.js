@@ -1,7 +1,8 @@
 import TodoItem from './TodoItem';
+import "./List.css";
 import { useState } from 'react';
-import './List.css';
 
+// 검색하기
 const List = ({todos}) => {
     const [search, setSearch] = useState('');
 
@@ -29,5 +30,4 @@ const List = ({todos}) => {
         </div>
     )
 }
-
 export default List;
