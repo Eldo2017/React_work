@@ -6,6 +6,7 @@ import { Route, Routes, Link, Navigate, useNavigate } from 'react-router-dom';
 import Detail from './pages/Detail';
 import axios from 'axios';
 import Cart from './pages/Cart';
+import SignUp from './pages/SignUp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Nav className="me-auto">
             <Nav.Link onClick={()=> {navigate('/')}}>Home</Nav.Link>
             <Nav.Link onClick={()=> {navigate('/cart')}}>Cart</Nav.Link>
+            <Nav.Link onClick={()=> {navigate('/signup')}}>SignUp</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -61,6 +63,7 @@ function App() {
         } />
         <Route path="/detail/:pid" element={<Detail clothes={clothes}/>} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<div>없는 페이지</div>} />
       </Routes>
     </div>
