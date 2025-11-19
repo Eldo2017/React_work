@@ -1,13 +1,13 @@
+
 import { useEffect, useState } from 'react';
 import { Button, Container, Row, Col, Nav } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 function Detail(props) {
     let {pid} = useParams();
     let findId = props.clothes.find(item => item.id == pid)
-
+    
     let [tab, setTab] = useState(0);
     const [fade2, setFade2] = useState('start');
 
@@ -23,8 +23,7 @@ function Detail(props) {
 
     useEffect(() => {
         let p = localStorage.getItem('recentProduct');
-        p = p ? JSON.parse(p) : [];
-        
+        p = JSON.parse(p)
         p.push(findId.id)
         p = new Set(p)
         p = Array.from(p)
@@ -50,16 +49,28 @@ function Detail(props) {
                         <p>{findId.content}</p>
                         <p>{findId.price}원</p>
                         <Button variant="info" onClick={()=>{
-                            axios.post('/react/addCart', {id:findId.id, title:findId.title, count:1})
-                                 .then(res => {
-                                    console.log(res);
+                            const user = JSON.parse(sessionStorage.getItem('loginUser'));
+
+                            if(!user) {
+                                alert("로그인 후 사용가능합니다.");
+                                navigate('/login');
+                                return;
+                            }
+                            axios.post('http://localhost:8080/react/addCart', {
+                                id:findId.id, 
+                                title:findId.title, 
+                                count:1,
+                                memId : user.email 
+                            })
+                            .then(result => {
+                                if(result.data == "ok") {
                                     navigate('/Cart');
-                                 })
-                                 .catch(error => {
-                                    console.log('실패',error);
-                                 })
-                            navigate('/Cart');
-                        }}>장바구니</Button>
+                                } 
+                            })
+                            .catch(error => {
+                                console.log("실패", error);
+                            })
+                        }}>장바구니에 담기</Button>
                     </Col>
                 </Row>
             </Container>
@@ -99,7 +110,7 @@ function RecentViewed({clothes}) {
                 {
                     recent.map(item => (
                         <div>
-                            <img src={`${process.env.PUBLIC_URL}/img/clothes${item.id}.jpg`} style={{width: '40%'}}/>
+                            <img src={`${process.env.PUBLIC_URL}/img/clothes${item.id}.jpg`} style={{width: '50%'}}/>
                             <div>
                                 <strong>{item.title}</strong>
                                 <p>{item.price}원</p>
